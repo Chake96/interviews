@@ -1,3 +1,6 @@
+#Build Stuff
+../build
+
 ### C++ ###
 # Prerequisites
 *.d

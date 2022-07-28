@@ -4,14 +4,10 @@ using namespace std;
 class MedianFinder {
     priority_queue<int> large{};
     priority_queue<int, vector<int>, std::less<>> small{};
-    size_t count{0};
-    bool count_odd{false};
 public:
     MedianFinder() = default;
     
     void addNum(int num) {
-        count += 1;
-        count_odd = !count_odd;
         large.push(num);
         small.push(large.top());
         large.pop();
