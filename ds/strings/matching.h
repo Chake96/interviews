@@ -72,17 +72,7 @@ auto kmp = [](auto&&... args) -> auto{
 
 template<class StrategyApplicator>
 bool rabin_karp(const str& pattern, const str& text, StrategyApplicator func){ //returns false if no occurences were found
-    const int plen = static_cast<int>(pattern.length()), tlen = static_cast<int>(text.length()); 
-    auto phash = std::hash<str>{}(pattern);
-    bool found{false};
-    for(size_t i{0}; i < tlen - plen; i++){
-        auto curr_hash = std::hash<str>{}(text.substr(i, 1));
-        if(curr_hash == phash){
-            found = true;
-            func(i);
-        }
-    }
-    return found;
+    //TODO: implement
 }
 
 template<size_t ALPHA_SIZE>
