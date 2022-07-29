@@ -3,7 +3,7 @@ using namespace std;
 
 class MedianFinder {
     priority_queue<int> large{};
-    priority_queue<int, vector<int>, std::less<>> small{};
+    priority_queue<int, vector<int>, std::greater<>> small{};
 public:
     MedianFinder() = default;
     
@@ -14,10 +14,12 @@ public:
         if(small.size() > large.size()){
             large.push(small.top());
             small.pop();
-        }
+        }        
     }
     double findMedian() {
-        if(large.size() > small.size()) return large.top();
+        if((large.size() + small.size()) & 1 == 1){
+            return static_cast<double>(large.top());
+        }
         return static_cast<double>(large.top() + small.top())/2.0;
     }
 };
