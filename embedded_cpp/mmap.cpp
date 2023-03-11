@@ -24,6 +24,7 @@ int main(){
     };
 
     char* file_in_mem = static_cast<char*>(mmap(NULL, file_stat.st_size, PROT_READ, MAP_PRIVATE, f_d, 0));
+    printf("Showing Memory Mapped File\n");
     for(int i = 0; i < file_stat.st_size; i++){
         printf("%c", file_in_mem[i]);
     }
